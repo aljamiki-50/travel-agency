@@ -41,14 +41,19 @@ const NavBar = () => {
 
   // window.addEventListener("resize", btnOff);
 
-  const List = ["Home", "Services", "Products"];
+  const List = [
+    { name: "Home", path: "Home" },
+    { name: "Services", path: "Services" },
+    { name: "Products", path: "Products" },
+    // { name: "User", path: "/User" },
+  ];
 
   return (
     <>
       <nav className="   px-4  relative   font-poppins flex justify-between  items-center   bg-black text-white    py-4 ">
         <div className=" flex  scale-150     ">
           <Link
-            to="#"
+            to="/"
             className=" font-roboto  border-b-teal-600  border-b-2"
             onClick={closeMobileMenue}
           >
@@ -58,7 +63,15 @@ const NavBar = () => {
         <div className="">
           <ul className={` flex items-center  gap-x-3   font-roboto      `}>
             {List.map((li) => (
-              <li>{button && <Button children={li} btnStyle="btn-dark" />}</li>
+              <Link to={li.path}>
+                {button && (
+                  <Button
+                    children={li.name}
+                    path={li.path}
+                    btnStyle="btn-dark"
+                  />
+                )}
+              </Link>
             ))}
             {button && (
               <Button
@@ -70,25 +83,26 @@ const NavBar = () => {
         </div>
         {/* <div className=" hidden "> */}
         {!button && (
-          <div className=" absolute right-2 " onClick={swap}>
+          <li className=" absolute right-2 " onClick={swap}>
             <i className={click ? "fas fa-times" : "fas fa-bars"} />
-          </div>
+          </li>
         )}
         {/* <div className="  absolute right-0 mt-28 scroll-smooth w-[100%]    "> */}
         <ul
           className={`${
-            click ? "slide-in  " : "slide-out    "
+            click ? "slide-in  " : "slide-out "
           } absolute  mt-[68px] right-0 top-0 w-[100%]    flex flex-col   gap-y-24 pt-10 bg-black hover:bg-black hover:text-white text-center`}
           style={{ height: `${height}px` }}
         >
           {List.map((li) => (
-            <li>
+            <Link to={li.path}>
               <Button
-                children={li}
+                path={li.path}
+                children={li.name}
                 btnStyle="  bg-transparent  btn btn-light text-light "
                 onClick={closeMobileMenue}
               />
-            </li>
+            </Link>
           ))}
           <li>
             <Button

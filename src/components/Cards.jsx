@@ -77,7 +77,7 @@ function Cards() {
   });
 
   return (
-    <div ref={genrall} className=" main p-4 bg-[#d7e0eb] ">
+    <div ref={genrall} className="  main p-4  canyon ">
       <h1
         // onMouseEnter={Show}
         className=" text-center py6 text-black text-6xl gx:text-2xl  font-extrabold  font-poppins first-letter:uppercase "

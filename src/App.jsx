@@ -12,12 +12,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
-      <NavBar />
-      <HeroSec/>
+      <HeroSec />
       <Cards />
-      <Footer />
-
-      {/* <h1 className=" p-10  bg-sky-800 rounded-full   ">hey how you doin</h1> */}
     </>
   );
 }
